@@ -1,0 +1,20 @@
+<nav class="sidebar" [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
+
+    <div class="list-group">
+        <div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">
+            <!-- <i class="fa fa-fw fa-angle-double-left"></i> -->
+            <i [ngClass]="!collapsed? 'fa fa-fw fa-times':'fa fa-fw fa-bars'" class></i>
+
+        </div>
+        <a routerLink="/dashboard" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-home"></i>&nbsp;
+            <span>{{ 'Home' | translate }}</span>
+        </a>
+        <a [routerLink]="['/orders']" [routerLinkActive]="['router-link-active']" class="list-group-item">
+            <i class="fa fa-fw fa-first-order"></i>&nbsp;
+            <span>{{ 'Orders' | translate }}</span>
+        </a>
+
+    </div>
+
+</nav>

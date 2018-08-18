@@ -1,0 +1,110 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Orders'" [icon]="'fa-first-order'"></app-page-header>
+    <div class="row">
+        <div class="col col-xl-12 col-lg-12">
+            <div class="card mb-3">
+                <div class="card-header order-heading">
+
+                    <div class="pull-left">
+                        Orders List
+                    </div>
+                    <div class="pull-right search-container">
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2 search-bar" aria-label="Search" placeholder="Search" type="text">
+                        </form>
+                        <button class="btn btn-sm btn-primary" type="button" (click)="open(content)">
+                            <i class="fa fa-plus" aria-hidden="true" style="font-size: 10px;"></i> &nbsp;Order</button>
+                    </div>
+                </div>
+                <table class="card-body table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Sl No.</th>
+                            <th>Customer Name</th>
+                            <th>Contact</th>
+                            <th>Status</th>
+                            <th>Total Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td colspan="2">Larry the Bird</td>
+                            <td>@twitter</td>
+                            <td>@mdo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <ng-template #content let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h4 class="modal-title">Place Order</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+                        <fieldset class="form-group">
+                            <label>Name</label>
+                            <input class="form-control" ngModel name="username" required>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label>Mobile</label>
+                            <input class="form-control" placeholder="Enter Mobile Number" ngModel name="mobile" required>
+                        </fieldset>
+                        <fieldset class="order-summary">
+                            <legend>Order Details:</legend>
+                            <div class="order-container">
+                                <div class="col-lg-6 no-padding">
+                                    <div class="form-group item-name">
+                                        <label class="item-text">Name:- </label>
+                                        <select class="form-control" [ngModel]="selectedItem" name="itemName">
+                                            <option *ngFor="let item of menuItems;">{{item.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 no-padding">
+                                    <div class="form-group item-qty">
+                                        <label class="item-text">Qty:-</label>
+                                        <select class="form-control" [ngModel]="selectedItemQty" name="itemQty">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="modal-footer order-footer">
+                            <!-- <button type="submit" [disabled]="!f.valid" class="btn btn-primary" (click)="c('Close click')">Submit Order</button> -->
+                            <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Submit Order</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </ng-template>
+</div>
