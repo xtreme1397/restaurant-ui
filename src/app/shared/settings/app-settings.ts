@@ -1,4 +1,4 @@
 export class AppSettings {
-    public static STUDIO_BASE_URL='http://localhost:9000/studio/v1/';
-    public static AUTH_BASE_URL='http://localhost:8443/auth/v1/';
+    public static STUDIO_BASE_URL='http://35.196.226.70/studio/v1/';
+    public static AUTH_BASE_URL='http://35.196.226.70/auth/v1/';
  }
