@@ -1,12 +1,6 @@
 # Restaurant App in Angular6 and Bootstrap 4
 
-Simple Dashboard Admin App built using Angular 6 and Bootstrap 4
-
-This project is a port of the famous Free Admin Bootstrap Theme [SB Admin v6.0](http://startbootstrap.com/template-overviews/sb-admin-2/) to Angular5 Theme.
-
-Powered by [StartAngular](http://startangular.com/) & [StrapUI](http://strapui.com/)
-
-## [Demo](http://rawgit.com/start-angular/SB-Admin-BS4-Angular-6/master/dist/)
+## [Demo](http://35.196.226.70)
 
 ## [SB Admin Material version](https://github.com/start-javascript/sb-admin-material)
 
@@ -31,13 +25,13 @@ Provides fast, reliable and extensible starter for the development of Angular pr
 
 ### How to start
 
-**Note** that this seed project requires **node >=v6.9.0 and npm >=3**.
+**Note** that this seed project and implemented on the top of SB-Admin-BS4-Angular-6 Theme requires **node >=v6.9.0 and npm >=3**.
 
 In order to start the project use:
 
 ```bash
 $ git clone https://github.com/start-angular/SB-Admin-BS4-Angular-5
-$ cd SB-Admin-BS4-Angular-5
+$ cd restaurant-ui
 # install the project's dependencies
 $ npm install
 # watches your files and uses livereload by default run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
