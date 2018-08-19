@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../router.animations';
+import { NgForm } from '@angular/forms';
+import { SignupService } from './signup.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-signup',
@@ -8,7 +11,18 @@ import { routerTransition } from '../router.animations';
     animations: [routerTransition()]
 })
 export class SignupComponent implements OnInit {
-    constructor() {}
+    constructor(private router: Router, private signupService: SignupService) { }
 
-    ngOnInit() {}
+    ngOnInit() { }
+    onSignup(form: NgForm) {
+        interface SignupResponse {
+            username: string;
+            namr: string;
+        };
+        this.signupService.signup(form.value).subscribe((response: SignupResponse) => {
+            this.router.navigate(["login"]);
+        }, (err) => {
+            console.log(err);
+        })
+    }
 }

@@ -10,7 +10,8 @@
                     </div>
                     <div class="pull-right search-container">
                         <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2 search-bar" aria-label="Search" placeholder="Search" type="text">
+                            <input name="searchbox" [(ngModel)]="searchText" class="form-control mr-sm-2 search-bar" aria-label="Search" placeholder="Search By Id"
+                                type="text">
                         </form>
                         <button class="btn btn-sm btn-primary" type="button" (click)="open(content)">
                             <i class="fa fa-plus" aria-hidden="true" style="font-size: 10px;"></i> &nbsp;Order</button>
@@ -20,6 +21,7 @@
                     <thead>
                         <tr>
                             <th>Sl No.</th>
+                            <th>Order Id.</th>
                             <th>Customer Name</th>
                             <th>Contact</th>
                             <th>Status</th>
@@ -27,25 +29,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
+                        <tr *ngFor="let order of orders | searchfilter: 'orderId' : searchText; let i = index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{order.orderId}}</td>
+                            <td>{{order.customerName}}</td>
+                            <td>{{order.mobile}}</td>
+                            <td>{{order.status}}</td>
+                            <td>{{'Rs '+order.price}}</td>
                         </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>@mdo</td>
+                        <tr *ngIf="!orders.length;">
+                            <td colspan="6" align="center">
+                                No item Found!!
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -98,7 +93,6 @@
                             </div>
                         </fieldset>
                         <div class="modal-footer order-footer">
-                            <!-- <button type="submit" [disabled]="!f.valid" class="btn btn-primary" (click)="c('Close click')">Submit Order</button> -->
                             <button type="submit" [disabled]="!f.valid" class="btn btn-primary">Submit Order</button>
                         </div>
                     </form>
