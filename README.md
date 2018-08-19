@@ -2,7 +2,6 @@
 
 ## [Demo](http://35.196.226.70)
 
-## [SB Admin Material version](https://github.com/start-javascript/sb-admin-material)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 
@@ -30,7 +29,7 @@ Provides fast, reliable and extensible starter for the development of Angular pr
 In order to start the project use:
 
 ```bash
-$ git clone https://github.com/start-angular/SB-Admin-BS4-Angular-5
+$ git clone https://github.com/xtreme1397/restaurant-ui.git
 $ cd restaurant-ui
 # install the project's dependencies
 $ npm install
